@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="kenyapesa@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="kenyapesa">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="community_watch"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="jaikes"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="test"/>
+    <schema id="10" parent="1" name="timetable_db"/>
+    <schema id="11" parent="1" name="v-tank"/>
+    <schema id="12" parent="1" name="v_water"/>
+    <table id="13" parent="2" name="feedbacks"/>
+    <table id="14" parent="2" name="limits"/>
+    <table id="15" parent="2" name="payments"/>
+    <table id="16" parent="2" name="rates"/>
+    <table id="17" parent="2" name="subscription"/>
+    <table id="18" parent="2" name="users"/>
+    <column id="19" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="13" name="text">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="13" name="approved">
+      <Position>4</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="23" parent="13" name="date">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="24" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="14" name="min_limit">
+      <Position>2</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="14" name="max_limit">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="14" name="exchange_rate">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <index id="29" parent="14" name="max_limit">
+      <ColNames>max_limit</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="30" parent="14" name="min_limit">
+      <ColNames>min_limit</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="32" parent="14" name="min_limit">
+      <ColNames>min_limit</ColNames>
+      <UnderlyingIndexName>min_limit</UnderlyingIndexName>
+    </key>
+    <key id="33" parent="14" name="max_limit">
+      <ColNames>max_limit</ColNames>
+      <UnderlyingIndexName>max_limit</UnderlyingIndexName>
+    </key>
+    <column id="34" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="15" name="transaction_id">
+      <Position>2</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="15" name="item_id">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="15" name="user_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="15" name="paypal_email">
+      <Position>5</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="15" name="dollars">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="15" name="shillings">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="15" name="status">
+      <Position>8</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="15" name="date">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="43" parent="15" name="transaction_id">
+      <ColNames>transaction_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="45" parent="15" name="transaction_id">
+      <ColNames>transaction_id</ColNames>
+      <UnderlyingIndexName>transaction_id</UnderlyingIndexName>
+    </key>
+    <column id="46" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="16" name="min_value">
+      <Position>2</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="16" name="max_value">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="16" name="fixed_dollar">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="16" name="percentage">
+      <Position>5</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="51" parent="16" name="max">
+      <ColNames>max_value</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="52" parent="16" name="min">
+      <ColNames>min_value</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="54" parent="16" name="min">
+      <ColNames>min_value</ColNames>
+      <UnderlyingIndexName>min</UnderlyingIndexName>
+    </key>
+    <key id="55" parent="16" name="max">
+      <ColNames>max_value</ColNames>
+      <UnderlyingIndexName>max</UnderlyingIndexName>
+    </key>
+    <column id="56" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="17" name="email">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="59" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="60" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="61" parent="18" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="18" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="18" name="paypal_email">
+      <Position>4</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="18" name="phone_number">
+      <Position>5</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="18" name="id_no">
+      <Position>6</Position>
+      <DataType>int(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="18" name="transaction_limit">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="18" name="amount_limit">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="18" name="password">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="18" name="status">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;NotApproved&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="18" name="is_admin">
+      <Position>11</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="71" parent="18" name="last_login">
+      <Position>12</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0000-00-00 00:00:00&apos;</DefaultExpression>
+    </column>
+    <column id="72" parent="18" name="date_joined">
+      <Position>13</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="73" parent="18" name="id_no">
+      <ColNames>id_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="74" parent="18" name="paypal_email">
+      <ColNames>paypal_email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="75" parent="18" name="phone_number">
+      <ColNames>phone_number</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="76" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="77" parent="18" name="paypal_email">
+      <ColNames>paypal_email</ColNames>
+      <UnderlyingIndexName>paypal_email</UnderlyingIndexName>
+    </key>
+    <key id="78" parent="18" name="phone_number">
+      <ColNames>phone_number</ColNames>
+      <UnderlyingIndexName>phone_number</UnderlyingIndexName>
+    </key>
+    <key id="79" parent="18" name="id_no">
+      <ColNames>id_no</ColNames>
+      <UnderlyingIndexName>id_no</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
